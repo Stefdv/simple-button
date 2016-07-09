@@ -1,0 +1,186 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../iron-icon/iron-icon.html">
+<link rel="import" href="../spinkit-element/spinkit-element.html">
+
+<dom-module id="simple-button">
+  <template>
+    <style>
+      /* Sane resets */
+      :host, *, *::before, *::after {
+        box-sizing: border-box;
+        -moz-osx-font-smoothing: grayscale;
+         -webkit-font-smoothing: antialiased;
+                 font-smoothing: antialiased;
+      }
+
+      /* Shim inconsistent browser hidden styles */
+      *[hidden] {
+        display: none !important;
+      }
+
+      :host {
+        position: relative;
+        cursor: pointer;
+
+        /* Reset default button styles */
+        font: inherit;
+        color: inherit;
+        line-height: normal;
+        background: none;
+        user-select: none;
+        -webkit-touch-callout: none;
+        border: 0;
+        padding: 0;
+        outline: 0;
+      }
+
+      /* Disable Firefox focus styles */
+      :host::-moz-focus-inner {
+        border: 0;
+        padding: 0;
+      }
+
+      :host([disabled]),
+      :host([busy]) {
+        cursor: default;
+        pointer-events: none;
+      }
+
+      .wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        line-height: 1.2;
+      }
+
+      :host([align="right"]) .wrapper {
+        flex-direction: row-reverse;
+      }
+
+      .busy {
+        width: 0;
+        transition: width 180ms ease-out-cubic;
+      }
+
+      .busy[data-active] {
+        width: 1.3em;
+        transition: width 200ms ease-out-back;
+      }
+
+      .busy__spinner {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        height: 1.1em;
+        width: 1.1em;
+      }
+
+      :host([align="left"]) .busy__spinner {
+        left: 0.8em;
+      }
+
+      :host([align="right"]) .busy__spinner {
+        right: 0.8em;
+      }
+
+      .icon {
+        --iron-icon-width: var(--simple-button-icon-size, 1em);
+        --iron-icon-height: var(--simple-button-icon-size, 1em);
+      }
+
+      :host([align="left"]) .icon {
+        margin-right: var(--simple-button-icon-offset, 0.35em);
+      }
+
+      :host([align="right"]) .icon {
+        margin-left: var(--simple-button-icon-offset, 0.35em);
+      }
+
+      .icon[data-no-content] {
+        margin: 0 !important;
+      }
+    </style>
+
+    <div class="wrapper">
+
+      <div class="busy" id="busy" data-active$="[[busy]]">
+        <spinkit-element
+          class="busy__spinner"
+          name="[[busySpinner]]"
+          alt="Busy"
+          active="[[busy]]">
+        </spinkit-element>
+      </div>
+
+      <iron-icon
+        class="icon"
+        icon=[[icon]]
+        data-no-content$=[[!_hasContent]]
+        hidden$=[[!icon]]>
+      </iron-icon>
+
+      <content></content>
+
+    </div>
+  </template>
+
+  <script>
+    class SimpleButton {
+      beforeRegister() {
+        this.is = 'simple-button';
+
+        this.extends = 'button';
+
+        this.properties = {
+
+          align: {
+            type: String,
+            reflectToAttribute: true,
+            value: 'left'
+          },
+
+          icon: {
+            type: String,
+            value: ''
+          },
+
+          busy: {
+            type: Boolean,
+            observer: '_busyChanged',
+            notify: true,
+            reflectToAttribute: true
+          },
+
+          busySpinner: {
+            type: String,
+            value: 'fading-circle'
+          },
+
+          _hasContent: Boolean
+
+        };
+      };
+
+      _observeContent() {
+        let content = Polymer.dom(this);
+
+        content.observeNodes(() => {
+          this._hasContent = !!content.innerHTML.trim();
+        });
+      }
+
+      _busyChanged(busy) {
+        if (busy) {
+          this.customStyle['--spinkit-element-color'] = getComputedStyle(this).color;
+          this.updateStyles();
+        }
+      }
+
+      attached() {
+        this._observeContent();
+      }
+
+    };
+    Polymer(SimpleButton)
+  </script>
+</dom-module>

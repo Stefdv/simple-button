@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>simple-button</title>
+    <script src="../../webcomponentsjs/webcomponents.min.js"></script>
+    <script src="../../web-component-tester/browser.js"></script>
+    <script src="../../test-fixture/test-fixture-mocha.js"></script>
+    <link rel="import" href="../../test-fixture/test-fixture.html">
+
+    <!-- Import the element to test -->
+    <link rel="import" href="../simple-button.html">
+
+    <!-- Setup fixtures -->
+    <script>
+      (function() {
+        var NAME = 'simple-button';
+
+        window.fixtures = window.fixtures || {};
+        window.fixtures['simple-button'] = {
+        };
+      })();
+    </script>
+
+  </head>
+  <body>
+    <test-fixture id="default">
+      <template>
+        <simple-button></simple-button>
+      </template>
+    </test-fixture>
+    <script>
+      describe('<simple-button>', function() {
+
+        var component,
+            componentFixtures;
+
+        componentFixtures = window.fixtures;
+
+        beforeEach(function() {
+          component = fixture('default');
+        });
+
+        it('is okay', function() {
+          expect(component).to.be.ok;
+        });
+
+      });
+    </script>
+  </body>
+</html>

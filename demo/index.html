@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+    <title>simple-button Demo</title>
+
+    <!-- Import Web Components polyfill -->
+    <script src="../../webcomponentsjs/webcomponents-lite.min.js"></script>
+
+    <!-- Use shadow DOM if available -->
+    <script>
+      window.Polymer = { dom: 'shadow' };
+    </script>
+
+    <!-- Import component -->
+    <link rel="import" href="../simple-button.html">
+    <link rel="import" href="../iron-icons/iron-icons.html">
+
+    <style>
+      button[is="simple-button"] {
+        font-family: sans-serif;
+        font-size: 14px;
+        color: white;
+        float: left;
+        border-radius: 5px;
+        padding: 0.5em 1em;
+        margin: 15px;
+      }
+    </style>
+  </head>
+  <body unresolved>
+
+    <button is="simple-button" id="submit" style="background: rgb(76, 208, 204);">click me!</button>
+    <button is="simple-button" style="background: rgb(61, 187, 48);" icon="icons:thumb-up"> </button>
+    <button is="simple-button" style="background: gray" icon="icons:thumb-up">Like</button>
+    <button is="simple-button" align="right" style="background: gray" icon="icons:thumb-up">Like</button>
+
+    <script>
+      var submit = document.querySelector('#submit');
+
+      submit.addEventListener('click', function() {
+        submit.busy = true;
+      });
+      submit.addEventListener('touchend', function() {
+        submit.busy = true;
+      });
+    </script>
+
+  </body>
+</html>
