@@ -1,5 +1,5 @@
 # Simple Button
-[![Build status][travis-badge]][travis-url] [![Bower dependencies][bowerdeps-badge]] [bowerdeps-url]![Version][bower-badge]
+[![Build status][travis-badge]][travis-url] [![Bower dependencies][bowerdeps-badge]][bowerdeps-url] ![Version][bower-badge]
 
 Extends the `<button>` element with extra functionality and fewer styles. 
 
