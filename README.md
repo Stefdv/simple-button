@@ -1,5 +1,6 @@
 # Simple Button
-[![Build status][travis-badge]][travis-url] [![Bower dependencies][bowerdeps-badge]][bowerdeps-url] ![Version][bower-badge]
+[![Build status][travis-badge]][travis-url] [![Bower dependencies][bowerdeps-badge]][bowerdeps-url] ![Version][bower-badge] ![Size][size-badge]
+<br/>[![Cross browser test status][browser-badges]][travis-url]
 
 Extends the `<button>` element with extra functionality and fewer styles. 
 
@@ -64,3 +65,5 @@ MIT © 2016 [Simpla](https://www.simpla.io)
 [travis-url]: https://travis-ci.org/SimpleElements/simple-button
 [bowerdeps-badge]: https://img.shields.io/gemnasium/SimpleElements/simple-button.svg
 [bowerdeps-url]: https://gemnasium.com/bower/simple-button
+[size-badge]: https://badges.herokuapp.com/size/github/SimpleElements/simple-button/master/simple-button.html?gzip=true&color=blue
+[browser-badges]: https://badges.herokuapp.com/travis/SimpleElements/simple-button/sauce/SimpleElements?labels=none
