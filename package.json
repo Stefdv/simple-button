@@ -1,6 +1,6 @@
 {
   "name": "simple-button",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Extends <button> with extra functionality and fewer styles",
   "main": "simple-button.html",
   "scripts": {
