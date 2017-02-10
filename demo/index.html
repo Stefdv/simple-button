@@ -25,26 +25,35 @@
         float: left;
         border-radius: 5px;
         padding: 0.5em 1em;
-        margin: 15px;
+        margin: 15px 15px 0 0;
+        background: rgb(76, 208, 204);
       }
     </style>
   </head>
   <body unresolved>
 
-    <button is="simple-button" id="submit" style="background: rgb(76, 208, 204);">click me!</button>
-    <button is="simple-button" style="background: rgb(61, 187, 48);" icon="icons:thumb-up"> </button>
-    <button is="simple-button" style="background: gray" icon="icons:thumb-up">Like</button>
-    <button is="simple-button" align="right" style="background: gray" icon="icons:thumb-up">Like</button>
+    <div style="display: inline-block; width: 100%">
+      <button is="simple-button" id="busy" style="background: rgb(76, 208, 204);">do something</button>
+      <button is="simple-button" icon="icons:thumb-up">like</button>
+      <button is="simple-button" align="right" icon="icons:expand-more">menu</button>
+    </div>
+
+    <form style="display: inline-block; width: 100%; margin-top: 2rem">
+      <input type="text" placeholder="Enter text" style="display: block">
+      <button is="simple-button" type="submit">submit form</button>
+    </form>
 
     <script>
-      var submit = document.querySelector('#submit');
+      var busy = document.querySelector('#busy'),
+          goBusy = function() {
+            busy.busy = true;
+            setTimeout(function() {
+              busy.busy = false;
+            }, 3000);
+          };
 
-      submit.addEventListener('click', function() {
-        submit.busy = true;
-      });
-      submit.addEventListener('touchend', function() {
-        submit.busy = true;
-      });
+      busy.addEventListener('click', goBusy);
+      busy.addEventListener('touchend', goBusy);
     </script>
 
   </body>
