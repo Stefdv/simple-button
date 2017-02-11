@@ -1,6 +1,5 @@
 <link rel="import" href="../polymer/polymer.html">
-<link rel="import" href="../iron-icon/iron-icon.html">
-<link rel="import" href="../spinkit-element/spinkit-element.html">
+<link rel="import" href="../iron-icon/iron-icon.html" async>
 
 <dom-module id="simple-button">
   <template>
@@ -100,17 +99,143 @@
       .icon[data-no-content] {
         margin: 0 !important;
       }
+
+      /**
+       * Spinkit busy spinner
+       * From https://github.com/tobiasahlin/SpinKit/blob/master/examples/10-fading-circle.html
+       */
+      .sk-fading-circle .sk-child {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+      }
+
+      .sk-fading-circle .sk-child:before {
+        content: '';
+        display: block;
+        margin: 0 auto;
+        width: 15%;
+        height: 15%;
+        background-color: currentColor;
+        border-radius: 100%;
+        animation: sk-circleFadeDelay 1.2s infinite ease-in-out both;
+      }
+
+      .sk-fading-circle .sk-circle2 {
+        transform: rotate(30deg);
+      }
+
+      .sk-fading-circle .sk-circle3 {
+        transform: rotate(60deg);
+      }
+
+      .sk-fading-circle .sk-circle4 {
+        transform: rotate(90deg);
+      }
+
+      .sk-fading-circle .sk-circle5 {
+        transform: rotate(120deg);
+      }
+
+      .sk-fading-circle .sk-circle6 {
+        transform: rotate(150deg);
+      }
+
+      .sk-fading-circle .sk-circle7 {
+        transform: rotate(180deg);
+      }
+
+      .sk-fading-circle .sk-circle8 {
+        transform: rotate(210deg);
+      }
+
+      .sk-fading-circle .sk-circle9 {
+        transform: rotate(240deg);
+      }
+
+      .sk-fading-circle .sk-circle10 {
+        transform: rotate(270deg);
+      }
+
+      .sk-fading-circle .sk-circle11 {
+        transform: rotate(300deg);
+      }
+
+      .sk-fading-circle .sk-circle12 {
+        transform: rotate(330deg);
+      }
+
+      .sk-fading-circle .sk-circle2:before {
+        animation-delay: -1.1s;
+      }
+
+      .sk-fading-circle .sk-circle3:before {
+        animation-delay: -1s;
+      }
+
+      .sk-fading-circle .sk-circle4:before {
+        animation-delay: -0.9s;
+      }
+
+      .sk-fading-circle .sk-circle5:before {
+        animation-delay: -0.8s;
+      }
+
+      .sk-fading-circle .sk-circle6:before {
+        animation-delay: -0.7s;
+      }
+
+      .sk-fading-circle .sk-circle7:before {
+        animation-delay: -0.6s;
+      }
+
+      .sk-fading-circle .sk-circle8:before {
+        animation-delay: -0.5s;
+      }
+
+      .sk-fading-circle .sk-circle9:before {
+        animation-delay: -0.4s;
+      }
+
+      .sk-fading-circle .sk-circle10:before {
+        animation-delay: -0.3s;
+      }
+
+      .sk-fading-circle .sk-circle11:before {
+        animation-delay: -0.2s;
+      }
+
+      .sk-fading-circle .sk-circle12:before {
+        animation-delay: -0.1s;
+      }
+
+     @keyframes sk-circleFadeDelay {
+        0%, 39%, 100% { opacity: 0; }
+        40% { opacity: 1; }
+      }
     </style>
 
     <div class="wrapper">
 
       <div class="busy" id="busy" data-active$="[[busy]]">
-        <spinkit-element
-          class="busy__spinner"
-          name="[[busySpinner]]"
-          alt="Busy"
-          active="[[busy]]">
-        </spinkit-element>
+        <template is="dom-if" if="[[busy]]">
+          <div class="busy__spinner sk-fading-circle">
+            <div class="sk-child sk-circle1"></div>
+            <div class="sk-child sk-circle2"></div>
+            <div class="sk-child sk-circle3"></div>
+            <div class="sk-child sk-circle4"></div>
+            <div class="sk-child sk-circle5"></div>
+            <div class="sk-child sk-circle6"></div>
+            <div class="sk-child sk-circle7"></div>
+            <div class="sk-child sk-circle8"></div>
+            <div class="sk-child sk-circle9"></div>
+            <div class="sk-child sk-circle10"></div>
+            <div class="sk-child sk-circle11"></div>
+            <div class="sk-child sk-circle12"></div>
+          </div>
+        </template>
       </div>
 
       <iron-icon

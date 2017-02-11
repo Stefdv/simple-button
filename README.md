@@ -35,11 +35,10 @@ Property      | Type    | Default           | Description
 ------------- | ------- | ----------------- | ------------                                                                                                                 
 `icon`        | String  | `''`              | SVG definition of an icon. Use [`iron-icons`][iron-icons], or define your own iconset with [`iron-iconset`][iron-iconset]. 
 `busy`        | Boolean | `false`           | Set the busy state of the button. Shows a busy spinner when true.                                                          
-`align`       | String  | `'left'`          | Set the alignment of button icon, busy spinner, and text. Can be `'left'` or `'right'`.                                    
-`busySpinner` | String  | `'fading-circle'` | Set the style of the busy spinner. Can be any of the styles in [Spinkit][spinkit].                                         
+`align`       | String  | `'left'`          | Set the alignment of button icon, busy spinner, and text. Can be `'left'` or `'right'`.                                         
 
 ```html
-<button is="simple-button" icon="" align="left" busy-spinner="fading-circle"></button> 
+<button is="simple-button" icon="" align="left"></button> 
 ```
 
 ## Styling
