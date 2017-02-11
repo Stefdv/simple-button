@@ -1,6 +1,5 @@
 # Simple Button
 [![Build status][travis-badge]][travis-url] [![Bower dependencies][bowerdeps-badge]][bowerdeps-url] ![Version][bower-badge] ![Size][size-badge]
-<br/>[![Cross browser test status][browser-badges]][travis-url]
 
 Extends the `<button>` element with extra functionality and fewer styles. 
 
@@ -37,8 +36,14 @@ Property      | Type    | Default           | Description
 `busy`        | Boolean | `false`           | Set the busy state of the button. Shows a busy spinner when true.                                                          
 `align`       | String  | `'left'`          | Set the alignment of button icon, busy spinner, and text. Can be `'left'` or `'right'`.                                         
 
+Properties can either be set as attributes on the element, or imperitively with Javascript
+
 ```html
 <button is="simple-button" icon="" align="left"></button> 
+
+<script>
+  document.querySelector('button[is="simple-button"]').busy = true;
+</script>
 ```
 
 ## Styling
@@ -51,12 +56,11 @@ Property                      | Default   | Description
 
 --
 
-MIT © 2016 [Simpla](https://www.simpla.io)
+MIT © [Simpla](https://www.simpla.io)
 
 [webcomponents]: https://github.com/webcomponents/webcomponentsjs
 [iron-icons]: https://elements.polymer-project.org/elements/iron-icons?view=demo:demo/index.html
 [iron-iconset]: https://elements.polymer-project.org/elements/iron-iconset-svg
-[spinkit]: http://tobiasahlin.com/spinkit/
 
 [bower-badge]: https://img.shields.io/bower/v/simple-button.svg
 [bowerlicense-badge]: https://img.shields.io/bower/l/simple-button.svg
@@ -65,4 +69,3 @@ MIT © 2016 [Simpla](https://www.simpla.io)
 [bowerdeps-badge]: https://img.shields.io/gemnasium/SimpleElements/simple-button.svg
 [bowerdeps-url]: https://gemnasium.com/bower/simple-button
 [size-badge]: https://badges.herokuapp.com/size/github/SimpleElements/simple-button/master/simple-button.html?gzip=true&color=blue
-[browser-badges]: https://badges.herokuapp.com/travis/SimpleElements/simple-button/sauce/SimpleElements?labels=none
