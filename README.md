@@ -61,7 +61,16 @@ Then use it in your project, by extending the native `<button>` element.
 <button is="simple-button"></button>
 ```
 
-Note for cross-browser support you should also include the [Web Components Polyfill][webcomponents].
+### Polyfills for cross-browser support
+Simple button relies on emerging standards, for full cross-browser support include the [Web Components Lite][webcomponents] polyfill.
+
+```sh
+bower i webcomponentsjs --save
+```
+
+```html
+<script src="/bower_components/webcomponentsjs/web-components-lite.js"></script>
+```
 
 ## Options
 Simple Button adds several extra properties and behaviors to the standard `button` element.
@@ -75,10 +84,10 @@ Property      | Type    | Default           | Description
 Properties can either be set as attributes on the element, or imperitively with Javascript
 
 ```html
-<button is="simple-button" icon="" align="left"></button> 
+<button is="simple-button" icon="" align="left" id="button"></button> 
 
 <script>
-  document.querySelector('button[is="simple-button"]').busy = true;
+  document.querySelector('#button').busy = true;
 </script>
 ```
 
