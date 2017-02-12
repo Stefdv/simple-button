@@ -59,12 +59,12 @@
 
       .busy {
         width: 0;
-        transition: width 180ms ease-out-cubic;
+        transition: width 180ms cubic-bezier(0.4, 0.0, 0.2, 1);
       }
 
       .busy[data-active] {
         width: 1.3em;
-        transition: width 200ms ease-out-back;
+        transition-duration: 200ms;
       }
 
       .busy__spinner {
