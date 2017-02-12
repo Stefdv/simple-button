@@ -1,9 +1,45 @@
 # Simple Button
-[![Build status][travis-badge]][travis-url] [![Bower dependencies][bowerdeps-badge]][bowerdeps-url] ![Version][bower-badge] ![Size][size-badge]
+[![Build status][travis-badge]][travis-url] [![Bower dependencies][bowerdeps-badge]][bowerdeps-url] ![Version][bower-badge] ![Size][size-badge] [![Published][webcomponents-badge]][webcomponents-url]
 
-Extends the `<button>` element with extra functionality and fewer styles. 
+Extends the `<button>` element with extra functionality and fewer styles.
 
-Strips all default `button` styles, adds an `icon` property that lets you insert SVG icons in the button, and a `busy` state that toggles a spinner and fires events.
+Strips all default `button` styles, adds an `icon` property that lets you insert SVG icons in the button, and a `busy` state that toggles a spinner and fires events. 
+
+<!---
+```
+<custom-element-demo>
+  <template>
+    <script src="../webcomponentsjs/webcomponents-lite.js"></script>
+    <link rel="import" href="../iron-icons/iron-icons.html">
+    <link rel="import" href="simple-button.html">
+    <style>
+      button[is="simple-button"] {
+        font-family: sans-serif;
+        font-size: 14px;
+        color: white;
+        border-radius: 5px;
+        padding: 0.5em 1em;
+        margin-right: 15px;
+        background: rgb(76, 208, 204);
+      }
+    </style>
+    <next-code-block></next-code-block>
+  </template>
+</custom-element-demo>
+```
+-->
+```html
+<button is="simple-button" id="busy">do something</button>
+<button is="simple-button" icon="icons:thumb-up">like</button>
+
+<script>
+  var busyButton = document.querySelector('#busy');
+  
+  busyButton.addEventListener('click', function() {
+    busyButton.busy = true;
+  });
+</script>
+```
 
 ## Installation & usage
 
@@ -69,3 +105,5 @@ MIT © [Simpla](https://www.simpla.io)
 [bowerdeps-badge]: https://img.shields.io/gemnasium/SimpleElements/simple-button.svg
 [bowerdeps-url]: https://gemnasium.com/bower/simple-button
 [size-badge]: https://badges.herokuapp.com/size/github/SimpleElements/simple-button/master/simple-button.html?gzip=true&color=blue
+[webcomponents-badge]: https://img.shields.io/badge/webcomponents.org-published-blue.svg
+[webcomponents-url]: https://www.webcomponents.org/element/SimpleElements/simple-button
