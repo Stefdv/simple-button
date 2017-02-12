@@ -1,9 +1,7 @@
 # Simple Button
 [![Build status][travis-badge]][travis-url] [![Bower dependencies][bowerdeps-badge]][bowerdeps-url] ![Version][bower-badge] ![Size][size-badge] [![Published][webcomponents-badge]][webcomponents-url]
 
-Extends the `<button>` element with extra functionality and fewer styles.
-
-Strips all default `button` styles, adds an `icon` property that lets you insert SVG icons in the button, and a `busy` state that toggles a spinner and fires events. 
+Simple button extends the navtive `<button>` element to make it better behaved. It strips all vendor styles, adds an `icon` property, and a `busy` state that toggles a spinner and fires events. 
 
 <!---
 ```
@@ -17,9 +15,10 @@ Strips all default `button` styles, adds an `icon` property that lets you insert
         font-family: sans-serif;
         font-size: 14px;
         color: white;
+        float: left;
         border-radius: 5px;
         padding: 0.5em 1em;
-        margin-right: 15px;
+        margin: 15px 15px 0 0;
         background: rgb(76, 208, 204);
       }
     </style>
@@ -29,15 +28,16 @@ Strips all default `button` styles, adds an `icon` property that lets you insert
 ```
 -->
 ```html
+<!-- Buttons with basic styles applied -->
 <button is="simple-button" id="busy">do something</button>
 <button is="simple-button" icon="icons:thumb-up">like</button>
 
 <script>
   var busyButton = document.querySelector('#busy');
-  
   busyButton.addEventListener('click', function() {
     busyButton.busy = true;
   });
+</script>
 </script>
 ```
 
