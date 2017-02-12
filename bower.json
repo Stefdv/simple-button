@@ -2,7 +2,7 @@
   "name": "simple-button",
   "version": "0.2.1",
   "authors": [
-    "Simpla <admin@simpla.io>"
+    "Simpla <friends@simpla.io>"
   ],
   "description": "Extends <button> with extra functionality and fewer styles",
   "keywords": [
