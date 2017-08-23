@@ -1,6 +1,6 @@
 # Deps
-node_modules
 bower_components
+node_modules
 
 # Runtime
 .DS_Store

@@ -1,12 +1,7 @@
-sudo: true
 dist: trusty
 language: node_js
 node_js:
-- '6'
-before_script:
-- npm install -g bower web-component-tester
-- bower install
-script: xvfb-run wct
+- '8'
 addons:
   firefox: latest
   apt:

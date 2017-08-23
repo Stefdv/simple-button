@@ -5,56 +5,131 @@
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
     <title>simple-button Demo</title>
 
-    <!-- Import Web Components polyfill -->
-    <script src="../../webcomponentsjs/webcomponents-lite.min.js"></script>
+    <!-- Import demo page deps -->
+    <script src="https://unpkg.com/@webcomponents/webcomponentsjs@^1.0.0/webcomponents-loader.js"></script>
+    <link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
 
-    <!-- Use shadow DOM if available -->
-    <script>
-      window.Polymer = { dom: 'shadow' };
-    </script>
-
-    <!-- Import component -->
+    <!-- Import simple-button -->
     <link rel="import" href="../simple-button.html">
-    <link rel="import" href="../iron-icons/iron-icons.html">
 
+    <!-- Demo icons -->
+    <link rel="import" href="../../iron-icons/iron-icons.html" async>
+
+    <!-- Demo styles -->
     <style>
-      button[is="simple-button"] {
+      /* Page styles */
+      body {
         font-family: sans-serif;
-        font-size: 14px;
-        color: white;
-        float: left;
-        border-radius: 5px;
+        color: #303c46
+      }
+
+      .wrapper {
+        width: 90%;
+        max-width: 38rem;
+        margin: 2rem auto;
+      }
+
+      .demo {
+        display: inline-block;
+        width: 100%;
+        margin: 1rem 0;
+      }
+
+      .demo__title {
+        font-size: 1.4rem;
+        font-weight: 400;
+      }
+
+      input {
         padding: 0.5em 1em;
-        margin: 15px 15px 0 0;
-        background: rgb(76, 208, 204);
+        display: block;
+        margin-bottom: 0.5rem;
+        border-radius: 3px;
+        border: 1px solid lightGrey;
+        outline: none;
+        box-shadow: none;
       }
     </style>
   </head>
-  <body unresolved>
 
-    <div style="display: inline-block; width: 100%">
-      <button is="simple-button" id="busy">do something</button>
-      <button is="simple-button" icon="icons:thumb-up">like</button>
-      <button is="simple-button" align="right" icon="icons:expand-more">menu</button>
+  <body>
+    <div class="wrapper">
+
+      <div class="demo">
+        <h1 class="demo__title">Basic demo</h1>
+        <demo-snippet>
+          <template>
+            <simple-button>blank slate</simple-button>
+          </template>
+        </demo-snippet>
+      </div>
+
+      <div class="demo">
+        <h1 class="demo__title">Easy styling</h1>
+        <demo-snippet>
+          <template>
+            <simple-button class="fancy">fancy!</simple-button>
+
+            <style>
+              .fancy {
+                font-size: 14px;
+                color: white;
+                border-radius: 5px;
+                padding: 0.5em 1em;
+                background: rgb(76, 208, 204);
+              }
+            </style>
+          </template>
+        </demo-snippet>
+      </div>
+
+      <div class="demo">
+        <h1 class="demo__title">Busy state</h1>
+        <demo-snippet>
+          <template>
+            <simple-button class="fancy" busy>
+              working...
+            </simple-button>
+          </template>
+        </demo-snippet>
+      </div>
+
+      <div class="demo">
+        <h1 class="demo__title">Icons</h1>
+        <demo-snippet>
+          <template>
+            <simple-button class="fancy" icon="icons:add-circle-outline">
+              add new
+            </simple-button>
+          </template>
+        </demo-snippet>
+      </div>
+
+      <div class="demo">
+        <h1 class="demo__title">Alignment</h1>
+        <demo-snippet>
+          <template>
+            <simple-button class="fancy" icon="icons:send" align="right">
+              send
+            </simple-button>
+          </template>
+        </demo-snippet>
+      </div>
+
+       <div class="demo">
+        <h1 class="demo__title">Forms</h1>
+        <demo-snippet>
+          <template>
+            <form onsubmit="event.preventDefault(); alert('form submitted!');">
+              <input type="text" name="input">
+              <simple-button class="fancy" type="submit">
+                submit
+              </simple-button>
+            </form>
+          </template>
+        </demo-snippet>
+      </div>
+
     </div>
-
-    <form style="display: inline-block; width: 100%; margin-top: 2rem">
-      <input type="text" placeholder="Enter text" style="display: block">
-      <button is="simple-button" type="submit">submit form</button>
-    </form>
-
-    <script>
-      var busy = document.querySelector('#busy'),
-          goBusy = function() {
-            busy.busy = true;
-            setTimeout(function() {
-              busy.busy = false;
-            }, 3000);
-          };
-
-      busy.addEventListener('click', goBusy);
-      busy.addEventListener('touchend', goBusy);
-    </script>
-
   </body>
 </html>

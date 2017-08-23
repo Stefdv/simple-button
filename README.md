@@ -1,14 +1,13 @@
 # Simple Button
-[![Build status][travis-badge]][travis-url] [![Bower dependencies][bowerdeps-badge]][bowerdeps-url] ![Version][bower-badge] ![Size][size-badge] [![Published][webcomponents-badge]][webcomponents-url]
+[![Build status][travis-badge]][travis-url] ![Size][size-badge] [![Version][tag-badge]][releases-url] [![Published][webcomponents-badge]][webcomponents-url]
 
-Simple button extends the navtive `<button>` element to make it better behaved. It strips all vendor styles, adds an `icon` property, and a `busy` state that toggles a spinner and fires events. 
+A lightweight, high quality, style-agnostic, form-friendly button component, built on Web Components. `<simple-button>` is a drop-in upgrade for HTML's `<button>` element. 
 
 <!---
 ```
 <custom-element-demo>
   <template>
     <script src="../webcomponentsjs/webcomponents-lite.js"></script>
-    <link rel="import" href="../iron-icons/iron-icons.html">
     <link rel="import" href="simple-button.html">
     <style>
       button[is="simple-button"] {
@@ -28,25 +27,48 @@ Simple button extends the navtive `<button>` element to make it better behaved. 
 ```
 -->
 ```html
-<!-- Buttons with basic styles applied -->
-<button is="simple-button" id="busy">do something</button>
-<button is="simple-button" icon="icons:thumb-up">like</button>
+<!-- Extremely lightweight -->
+<simple-button>naked button</simple-button> 
 
-<script>
-  var busyButton = document.querySelector('#busy');
-  busyButton.addEventListener('click', function() {
-    busyButton.busy = true;
-  });
-</script>
-</script>
+<!-- Easy to style -->
+<simple-button class="fancy">fancy button</simple-button>
+
+<!-- Comes with superpowers -->
+<simple-button class="fancy" busy>working...</simple-button>
+
+<style>
+  .fancy {
+    font-size: 14px;
+    color: white;
+    border-radius: 5px;
+    padding: 0.5em 1em;
+    background: rgb(76, 208, 204);
+  }
+</style>
 ```
+
+### Contents
+
+- [Features](#features)
+- [Installation & usage](#installation--usage)
+  - [Polyfills for cross-browser support](#polyfills-for-cross-browser-support)
+  - [Transpiling for IE11 support](#transpiling-for-ie11-support)
+- [Options](#options)
+- [Styling](#styling)
+
+## Features
+
+- No default UI, style it however you like
+- Works seamlessly as a submit button for forms
+- `busy` state that opens in-button spinner and disables user interaction
+- `icon` property that displays an SVG icon definition
 
 ## Installation & usage
 
 Install simple-button with Bower
 
 ```sh
-$ bower install simple-button --save
+$ bower i SimpleElements/simple-button --save
 ```
 
 Import it into the `<head>` of your page
@@ -55,64 +77,73 @@ Import it into the `<head>` of your page
 <link rel="import" href="/bower_components/simple-button/simple-button.html">
 ```
 
-Then use it in your project, by extending the native `<button>` element.
+Then use simple-button in your project
 
 ```html
-<button is="simple-button"></button>
+<simple-button>click me!</simple-button>
 ```
 
 ### Polyfills for cross-browser support
-Simple button relies on emerging standards, for full cross-browser support include the [Web Components Lite][webcomponents] polyfill.
 
-```sh
-bower i webcomponentsjs --save
-```
+simple-button relies on emerging standards, for full cross-browser support include the [WebComponentsJS](https://github.com/webcomponents/webcomponentsjs) polyfill on your page.
 
 ```html
-<script src="/bower_components/webcomponentsjs/web-components-lite.js"></script>
+<script src="https://unpkg.com/@webcomponents/webcomponentsjs@^1.0.0/webcomponents-loader.js"></script>
+```
+
+### Transpiling for IE11 support
+
+Web Components like simple-button are distributed as ES6 classes, which are supported in all evergreen browsers. To support Internet Explorer 11 you should transpile simple-button to ES5 and use the `webcomponentsjs` `custom-elements-es5-adapter.js` shim. 
+
+The easiest way to do this is by including [polymer-build][polymer-build] in your buildstep of choice. Then just include the ES5 adapter on your page
+
+```html
+<script src="https://unpkg.com/@webcomponents/webcomponentsjs@^1.0.0/custom-elements-es5-adapter.js"></script>
 ```
 
 ## Options
-Simple Button adds several extra properties and behaviors to the standard `button` element.
+
+Simple-button adds several extra properties and behaviors compared to the standard `<button>` element.
 
 Property      | Type    | Default           | Description                                                                                                                
 ------------- | ------- | ----------------- | ------------                                                                                                                 
-`icon`        | String  | `''`              | SVG definition of an icon. Use [`iron-icons`][iron-icons], or define your own iconset with [`iron-iconset`][iron-iconset]. 
+`icon`        | String  | `''`              | SVG definition of an icon. Use [`iron-icons`][iron-icons], or define your own iconset with [`iron-iconset-svg`][iron-iconset-svg]. 
 `busy`        | Boolean | `false`           | Set the busy state of the button. Shows a busy spinner when true.                                                          
-`align`       | String  | `'left'`          | Set the alignment of button icon, busy spinner, and text. Can be `'left'` or `'right'`.                                         
+`align`       | String  | `'left'`          | Set the alignment of button icon and busy spinner. `'left'` or `'right'`.                                         
 
 Properties can either be set as attributes on the element, or imperitively with Javascript
 
 ```html
-<button is="simple-button" icon="" align="left" id="button"></button> 
+<simple-button align="left"></simple-button> 
 
 <script>
-  document.querySelector('#button').busy = true;
+  document.querySelector('simple-button').busy = true;
 </script>
 ```
 
 ## Styling
-In addition to applying styles to the button itself, you can style specific parts of simple-button with custom CSS properties
+In addition to styling the button itself, you can style specific parts of simple-button with custom CSS properties
 
 Property                      | Default   | Description                                                          
 ----------------------------- | --------- | ------------                                                         
-`--simple-button-icon-size`   | `1em`     | Size of the button icon, defaults to 1em so you can use `font-size`. 
-`--simple-button-icon-offset` | `0.35em`  | Margin between icon and button text content.                         
+`--simple-button-icon-size`   | `1em`     | Size of the button icon, defaults to 1em so you can use `font-size`
 
---
+Apply custom CSS props directly on simple-button
 
-MIT © [Simpla](https://www.simpla.io)
+```css
+simple-button {
+  --simple-button-icon-size: 14px;
+}
+```
 
-[webcomponents]: https://github.com/webcomponents/webcomponentsjs
-[iron-icons]: https://elements.polymer-project.org/elements/iron-icons?view=demo:demo/index.html
-[iron-iconset]: https://elements.polymer-project.org/elements/iron-iconset-svg
+***
 
-[bower-badge]: https://img.shields.io/bower/v/simple-button.svg
-[bowerlicense-badge]: https://img.shields.io/bower/l/simple-button.svg
+MIT © [Sean King](https://twitter.com/seaneking)
+
+[tag-badge]: https://img.shields.io/github/tag/SimpleElements/simple-button.svg
+[releases-url]: https://github.com/SimpleElements/simple-button/releases
 [travis-badge]: https://img.shields.io/travis/SimpleElements/simple-button.svg
 [travis-url]: https://travis-ci.org/SimpleElements/simple-button
-[bowerdeps-badge]: https://img.shields.io/gemnasium/SimpleElements/simple-button.svg
-[bowerdeps-url]: https://gemnasium.com/bower/simple-button
-[size-badge]: https://badges.herokuapp.com/size/github/SimpleElements/simple-button/master/simple-button.html?gzip=true&color=blue
+[size-badge]: https://badges.herokuapp.com/size/github/SimpleElements/simple-button/master/simple-button.html?gzip=true
 [webcomponents-badge]: https://img.shields.io/badge/webcomponents.org-published-blue.svg
 [webcomponents-url]: https://www.webcomponents.org/element/SimpleElements/simple-button

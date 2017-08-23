@@ -3,36 +3,32 @@
   <head>
     <meta charset="utf-8">
     <title>simple-button</title>
-    <script src="../../webcomponentsjs/webcomponents.min.js"></script>
-    <script src="../../web-component-tester/browser.js"></script>
-    <script src="../../test-fixture/test-fixture-mocha.js"></script>
 
-    <!-- Import the element to test -->
+    <!-- Setup WCT -->
+    <script src="https://unpkg.com/@webcomponents/webcomponentsjs@^1.0.0/webcomponents-loader.js"></script>
+    <script src="../../web-component-tester/browser.js"></script>
+
+    <!-- Import simple-button  -->
     <link rel="import" href="../simple-button.html">
 
   </head>
   <body>
+
     <test-fixture id="default">
       <template>
         <simple-button></simple-button>
       </template>
     </test-fixture>
+
     <script>
-      describe('<simple-button>', function() {
+      describe('<simple-button>', () => {
+        var component;
 
-        var component,
-            componentFixtures;
-
-        componentFixtures = window.fixtures;
-
-        beforeEach(function() {
-          component = fixture('default');
-        });
+        beforeEach(() => component = fixture('default'));
 
         it('is okay', function() {
           expect(component).to.be.ok;
         });
-
       });
     </script>
   </body>
