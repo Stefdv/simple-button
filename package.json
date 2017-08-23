@@ -1,6 +1,6 @@
 {
   "name": "simple-button",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Drop in upgrade for HTML's <button> element, built on Web Components",
   "main": "simple-button.html",
   "scripts": {
