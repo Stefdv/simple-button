@@ -144,6 +144,6 @@ MIT © [Sean King](https://twitter.com/seaneking)
 [releases-url]: https://github.com/SimpleElements/simple-button/releases
 [travis-badge]: https://img.shields.io/travis/SimpleElements/simple-button.svg
 [travis-url]: https://travis-ci.org/SimpleElements/simple-button
-[size-badge]: https://badges.herokuapp.com/size/github/SimpleElements/simple-button/master/simple-button.html?gzip=true
+[size-badge]: http://img.badgesize.io/SimpleElements/simple-button/master/simple-button.html?compression=gzip&label=size%20%28unminified%29
 [webcomponents-badge]: https://img.shields.io/badge/webcomponents.org-published-blue.svg
 [webcomponents-url]: https://www.webcomponents.org/element/SimpleElements/simple-button
