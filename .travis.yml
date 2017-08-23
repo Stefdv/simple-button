@@ -5,6 +5,7 @@ node_js:
 before_script:
   - npm install -g bower
   - bower install
+script: xvfb-run wct
 addons:
   firefox: latest
   apt:
