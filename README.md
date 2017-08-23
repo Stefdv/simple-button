@@ -10,15 +10,17 @@ A lightweight, high quality, style-agnostic, form-friendly button component, bui
     <script src="../webcomponentsjs/webcomponents-lite.js"></script>
     <link rel="import" href="simple-button.html">
     <style>
-      button[is="simple-button"] {
+      body {
         font-family: sans-serif;
-        font-size: 14px;
-        color: white;
-        float: left;
-        border-radius: 5px;
-        padding: 0.5em 1em;
-        margin: 15px 15px 0 0;
-        background: rgb(76, 208, 204);
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+                align-items: center;
+      }
+      simple-button {
+        margin: 0.5rem
       }
     </style>
     <next-code-block></next-code-block>
