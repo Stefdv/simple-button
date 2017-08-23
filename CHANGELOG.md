@@ -1,5 +1,8 @@
 # Change Log
 
+## [v1.0.0](https://github.com/SimpleElements/simple-button/tree/v1.0.0) (2017-08-23)
+[Full Changelog](https://github.com/SimpleElements/simple-button/compare/v0.2.4...v1.0.0)
+
 ## [v0.2.4](https://github.com/SimpleElements/simple-button/tree/v0.2.4) (2017-08-21)
 [Full Changelog](https://github.com/SimpleElements/simple-button/compare/v0.2.3...v0.2.4)
 
