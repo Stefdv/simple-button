@@ -22,13 +22,11 @@
 
     <script>
       describe('<simple-button>', () => {
-        var component;
+        let component;
 
         beforeEach(() => component = fixture('default'));
 
-        it('is okay', function() {
-          expect(component).to.be.ok;
-        });
+        it('is okay', () => expect(component).to.be.ok);
       });
     </script>
   </body>

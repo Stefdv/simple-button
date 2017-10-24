@@ -315,7 +315,7 @@ class SimpleButton extends Polymer.GestureEventListeners(Polymer.Element) {
 
     button.style.display = 'none';
     button.type = this.type || '';
-    Polymer.dom(this).appendChild(button);
+    this.appendChild(button);
     Polymer.Gestures.addListener(this, 'tap', () => this.__targetButton.click());
     this.__targetButton = button;
   }
